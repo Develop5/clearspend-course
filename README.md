@@ -17,7 +17,7 @@ La regla inicial de aprobación existe en el software y forma parte de lo que el
 
 ## Requisitos
 
-- Java 21
+- Java 17 o superior
 - Maven 3.9+ o Maven Wrapper cuando se incorpore al repositorio
 - IntelliJ IDEA
 
