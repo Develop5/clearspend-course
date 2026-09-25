@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ClearSpend</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 1000px; padding: 0 1rem; color: #222; }
+        header { display: flex; justify-content: space-between; align-items: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        th, td { border-bottom: 1px solid #ddd; padding: .7rem; text-align: left; }
+        a.button { display: inline-block; padding: .6rem .9rem; border: 1px solid #333; border-radius: 4px; text-decoration: none; color: #222; }
+        .muted { color: #666; }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <h1>ClearSpend</h1>
+        <div class="muted">Gestión interna de gastos</div>
+    </div>
+    <a class="button" th:href="@{/expenses/new}">Registrar gasto</a>
+</header>
+
+<table>
+    <thead>
+    <tr>
+        <th>Fecha</th>
+        <th>Categoría</th>
+        <th>Importe</th>
+        <th>Concepto</th>
+        <th>Estado</th>
+        <th>Nivel</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="expense : ${expenses}">
+        <td th:text="${expense.date}"></td>
+        <td th:text="${expense.category.label}"></td>
+        <td th:text="${#numbers.formatDecimal(expense.amount,1,2)} + ' €'"></td>
+        <td th:text="${expense.description}"></td>
+        <td th:text="${expense.approvalStatus.label}"></td>
+        <td th:text="${expense.approvalLevel.label}"></td>
+        <td><a th:href="@{/expenses/{id}/edit(id=${expense.id})}">Editar</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
