@@ -18,7 +18,7 @@ La regla inicial de aprobación existe en el software y forma parte de lo que el
 ## Requisitos
 
 - Java 17 o superior
-- Maven 3.9+ o Maven Wrapper cuando se incorpore al repositorio
+- No es necesario instalar Maven globalmente: el proyecto incluye Maven Wrapper.
 - IntelliJ IDEA
 
 ## Ejecutar
@@ -28,7 +28,7 @@ Desde IntelliJ, ejecutar `ClearSpendApplication`.
 O desde terminal:
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Abrir:
@@ -38,7 +38,7 @@ Abrir:
 ## Tests
 
 ```bash
-mvn test
+./mvnw test
 ```
 
 ## Checkpoint
